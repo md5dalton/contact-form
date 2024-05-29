@@ -20,15 +20,22 @@ export default () => (
                 </div>
                 <div>
                     <Fieldset>
-                        <legend className="space-x-2">
-                            <span>Query Type</span>
-                            <span className="text-green-medium">*</span>
-                        </legend>
-                        <div className="">
-                            <div className="flex gap-4 px-6 py-3  border-[1px] border-grey-medium rounded-lg">
-                                <div className="h-6 w-6 border-2 rounded-full border-grey-medium shrink-0"></div>
-                                <label>Support Request</label>
-                                <input className="hidden" type="radio" />
+                        <div className="space-y-2">
+                            <legend className="space-x-2">
+                                <span>Query Type</span>
+                                <span className="text-green-medium">*</span>
+                            </legend>
+                            <div className="grid gap-4">
+                                <div className="flex gap-4 px-6 py-3  border-[1px] border-grey-medium rounded-lg">
+                                    <div className="h-6 w-6 border-2 rounded-full border-grey-medium shrink-0"></div>
+                                    <label>Support Request</label>
+                                    <input className="hidden" type="radio" />
+                                </div>
+                                <div className="flex gap-4 px-6 py-3  border-[1px] border-grey-medium rounded-lg">
+                                    <div className="h-6 w-6 border-2 rounded-full border-grey-medium shrink-0"></div>
+                                    <label>Query Type</label>
+                                    <input className="hidden" type="radio" />
+                                </div>
                             </div>
                         </div>
                         <ErrorMsg>This field is required</ErrorMsg>
