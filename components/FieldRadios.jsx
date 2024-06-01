@@ -1,10 +1,11 @@
+import { gId } from "@/lib/functions"
 import ErrorMsg from "./ErrorMsg"
 import Fieldset from "./Fieldset"
 import Radio from "./Radio"
 import UList from "./UList"
 
 export default ({ legend, options }) => (
-    <Fieldset>
+    <Fieldset name={legend}>
         <div className="space-y-2">
             <legend className="space-x-2">
                 <span>{legend}</span>
@@ -13,9 +14,8 @@ export default ({ legend, options }) => (
             <UList
                 className="grid gap-4"
                 items={options}
-                itemHandler={item => <Radio name={legend} {...item} />}
+                itemHandler={item => <Radio name={gId(legend)} {...item} />}
             />
         </div>
-        <ErrorMsg>This field is required</ErrorMsg>
     </Fieldset>
 )
