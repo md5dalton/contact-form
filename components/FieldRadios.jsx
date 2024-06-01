@@ -13,7 +13,7 @@ export default ({ legend, options }) => (
             <UList
                 className="grid gap-4"
                 items={options}
-                itemHandler={item => <Radio {...item} />}
+                itemHandler={item => <Radio name={legend} {...item} />}
             />
         </div>
         <ErrorMsg>This field is required</ErrorMsg>
