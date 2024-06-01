@@ -1,10 +1,11 @@
 import Image from "next/image"
 import ErrorMsg from "./ErrorMsg"
 import Fieldset from "./Fieldset"
+import { gId } from "@/lib/functions"
 
 export default ({ label }) => {
     
-    const id = label.toLowerCase().replaceAll(" ", "-")
+    const id = gId(label)
     
     return (
         <Fieldset>
