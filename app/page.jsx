@@ -1,6 +1,7 @@
-import ErrorMsg from "@/components/ErrorMsg"
-import Fieldset from "@/components/Fieldset"
+import FieldCheckbox from "@/components/FieldCheckbox"
+import FieldRadios from "@/components/FieldRadios"
 import FieldTextInput from "@/components/FieldTextInput"
+import FieldTextarea from "@/components/FieldTextarea"
 
 export default () => (
     <section className="bg-white mx-4 my-8 rounded-2xl p-6 grid gap-10">
@@ -11,42 +12,24 @@ export default () => (
                     <FieldTextInput label="First name" />
                     <FieldTextInput label="Last name" />
                 </div>
+                <div className="grid gap-6">
+                    <FieldTextInput label="Email" type="email" />
+                </div>
                 <div>
-                    <Fieldset>
-                        <div className="space-y-2">
-                            <legend className="space-x-2">
-                                <span>Query Type</span>
-                                <span className="text-green-medium">*</span>
-                            </legend>
-                            <div className="grid gap-4">
-                                <div className="flex gap-4 px-6 py-3  border-[1px] border-grey-medium rounded-lg">
-                                    <div className="h-6 w-6 border-2 rounded-full border-grey-medium shrink-0"></div>
-                                    <label>Support Request</label>
-                                    <input className="hidden" type="radio" />
-                                </div>
-                                <div className="flex gap-4 px-6 py-3  border-[1px] border-grey-medium rounded-lg">
-                                    <div className="h-6 w-6 border-2 rounded-full border-grey-medium shrink-0"></div>
-                                    <label>Query Type</label>
-                                    <input className="hidden" type="radio" />
-                                </div>
-                            </div>
-                        </div>
-                        <ErrorMsg>This field is required</ErrorMsg>
-                    </Fieldset>
+                    <FieldRadios
+                        legend="Query Type"
+                        options={[
+                            {label: "Support Request"},
+                            {label: "Query Type"},
+                        ]}
+                    />
+                </div>
+                <div className="grid gap-6">
+                    <FieldTextarea label="Message" />
                 </div>
             </div>
         </div>
-        <Fieldset>
-            <div className="flex gap-4 items-center">
-                <div className="h-6 w-6 border-2 rounded-sm border-grey-medium shrink-0"></div>
-                <div className="space-x-2">
-                    <label>I consent to being contacted by the team</label>
-                    <span className="text-green-medium">*</span>
-                </div>
-                <input className="hidden" type="checkbox" />
-            </div>
-            <ErrorMsg>This field is required</ErrorMsg>
-        </Fieldset>
+        <FieldCheckbox label="I consent to being contacted by the team" />
         <button className="bg-green-medium text-white text-m-b py-4 rounded-lg">Submit</button>
     </section>
 )
