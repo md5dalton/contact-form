@@ -4,6 +4,7 @@ import FieldCheckbox from "@/components/FieldCheckbox"
 import FieldRadios from "@/components/FieldRadios"
 import FieldTextInput from "@/components/FieldTextInput"
 import FieldTextarea from "@/components/FieldTextarea"
+import Toaster from "@/components/Toaster"
 import { Form, Formik } from "formik"
 import * as Yup from "yup"
 
@@ -19,13 +20,21 @@ export default () => (
             consent: "",
         }}
 
-            validationSchema={Yup.object({
-                firstname: Yup.string()
-                    .max(15, "Must be 15 characters or less")
-                    .required("This field is required"),
+        validationSchema={Yup.object({
+            firstname: Yup.string()
+                .max(15, "Must be 15 characters or less")
+                .matches(
+                    /^[a-zA-Z0-9]+$/,
+                    "Cannot contain special characters or spaces"
+                )
+                .required("This field is required"),
 
             lastname: Yup.string()
                 .max(15, "Must be 15 characters or less")
+                .matches(
+                    /^[a-zA-Z0-9]+$/,
+                    "Cannot contain special characters or spaces"
+                )
                 .required("This field is required"),
 
             email: Yup.string()
@@ -49,6 +58,7 @@ export default () => (
         }}
     >
         <Form className="bg-white mx-4 my-8 rounded-2xl p-6 grid gap-10">
+            <Toaster />
             <div className="grid gap-8">
                 <h1 className="text-hd">Contact Us</h1>
                 <div className="grid gap-6">
