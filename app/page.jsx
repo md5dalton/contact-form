@@ -16,24 +16,25 @@ export default () => (
             email: "",
             querytype: "",
             message: "",
-            consent: false,
+            consent: "",
         }}
 
-        validationSchema={Yup.object({
-            firstname: Yup.string()
+            validationSchema={Yup.object({
+                firstname: Yup.string()
+                    .max(15, "Must be 15 characters or less")
+                    .required("This field is required"),
+
+            lastname: Yup.string()
                 .max(15, "Must be 15 characters or less")
                 .required("This field is required"),
 
-            // lastname: Yup.string()
-            //     .max(15, "Must be 15 characters or less")
-            //     .required("This field is required"),
+            email: Yup.string()
+                .email("Invalid email address")
+                .required("This field is required"),
 
-            // email: Yup.string()
-            //     .email("Invalid email address")
-            //     .required("This field is required"),
-            // querytype: Yup.array().required("This field is required"),
-            // message: Yup.string().required("This field is required"),
-            // consent: Yup.boolean().required("This field is required")
+            querytype: Yup.string().required("This field is required"),
+            message: Yup.string().required("This field is required"),
+            consent: Yup.boolean().required("This field is required")
         })}
         
         onSubmit={(values, { setSubmitting }) => {
@@ -72,7 +73,7 @@ export default () => (
                     </div>
                 </div>
             </div>
-            <FieldCheckbox label="I consent to being contacted by the team" />
+            <FieldCheckbox name="consent" label="I consent to being contacted by the team" />
             <button type="submit" className="bg-green-medium text-white text-m-b py-4 rounded-lg">Submit</button>
         </Form>
     </Formik>
