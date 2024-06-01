@@ -1,22 +1,15 @@
 import ErrorMsg from "@/components/ErrorMsg"
 import Fieldset from "@/components/Fieldset"
+import FieldTextInput from "@/components/FieldTextInput"
 
 export default () => (
     <section className="bg-white mx-4 my-8 rounded-2xl p-6 grid gap-10">
         <div className="grid gap-8">
             <h1 className="text-hd">Contact Us</h1>
             <div className="grid gap-6">
-                <div>
-                    <Fieldset>
-                        <div className="grid gap-2">
-                            <div className="space-x-2">
-                                <label>First name</label>
-                                <span className="text-green-medium">*</span>
-                            </div>
-                            <input className="outline-none border-[1px] border-grey-medium rounded-lg py-3 px-6" type="text" />
-                        </div>
-                        <ErrorMsg>This field is required</ErrorMsg>
-                    </Fieldset>
+                <div className="grid gap-6">
+                    <FieldTextInput label="First name" />
+                    <FieldTextInput label="Last name" />
                 </div>
                 <div>
                     <Fieldset>
