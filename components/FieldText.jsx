@@ -1,5 +1,7 @@
+import { ErrorMessage } from "formik"
 import ErrorMsg from "./ErrorMsg"
 import Fieldset from "./Fieldset"
+import { gId } from "@/lib/functions"
 
 export default ({ label, children }) => (
     <Fieldset>
@@ -10,6 +12,6 @@ export default ({ label, children }) => (
             </div>
             {children}
         </div>
-        <ErrorMsg>This field is required</ErrorMsg>
+        <ErrorMessage className="text-red text-s" name={gId(label)} component="p" />
     </Fieldset>
 )
