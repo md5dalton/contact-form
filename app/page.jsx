@@ -1,9 +1,9 @@
 "use client"
 
-import FieldCheckbox from "@/components/FieldCheckbox"
-import FieldRadios from "@/components/FieldRadios"
 import FieldTextInput from "@/components/FieldTextInput"
+import FieldCheckbox from "@/components/FieldCheckbox"
 import FieldTextarea from "@/components/FieldTextarea"
+import FieldRadios from "@/components/FieldRadios"
 import Toaster from "@/components/Toaster"
 import { Form, Formik } from "formik"
 import * as Yup from "yup"
@@ -44,6 +44,7 @@ export default () => (
             querytype: Yup.string().required("This field is required"),
             message: Yup.string().required("This field is required"),
             consent: Yup.boolean().required("This field is required")
+            
         })}
         
         onSubmit={(values, { setSubmitting }) => {
