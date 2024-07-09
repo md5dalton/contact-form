@@ -4,8 +4,9 @@ import FieldTextInput from "@/components/FieldTextInput"
 import FieldCheckbox from "@/components/FieldCheckbox"
 import FieldTextarea from "@/components/FieldTextarea"
 import FieldRadios from "@/components/FieldRadios"
-import Toaster from "@/components/Toaster"
+import { Toaster } from "react-hot-toast"
 import { Form, Formik } from "formik"
+import { msgSent } from "@/lib/toast"
 import * as Yup from "yup"
 
 export default () => (
@@ -47,12 +48,16 @@ export default () => (
             
         })}
         
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
             setTimeout(() => {
 
-                console.log(values);
+                // console.log(values)
+
+                msgSent()
     
-                setSubmitting(false);
+                setSubmitting(false)
+
+                resetForm()
     
             }, 400)
     
