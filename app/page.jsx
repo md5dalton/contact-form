@@ -63,12 +63,13 @@ export default () => (
     
         }}
     >
-        <Form className="bg-white mx-4 my-8 rounded-2xl p-6 grid gap-10">
+        <Form
+            className="grid gap-10 p-6 bg-white rounded-2xl md:p-10">
             <Toaster />
             <div className="grid gap-8">
                 <h1 className="text-hd">Contact Us</h1>
                 <div className="grid gap-6">
-                    <div className="grid gap-6">
+                    <div className="grid gap-6 md:grid-cols-2">
                         <FieldTextInput label="First name" />
                         <FieldTextInput label="Last name" />
                     </div>
