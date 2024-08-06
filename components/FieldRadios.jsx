@@ -12,7 +12,7 @@ export default ({ legend, options }) => (
                 <span className="text-green-medium">*</span>
             </legend>
             <UList
-                className="grid gap-4"
+                className="grid gap-4 md:grid-cols-2"
                 items={options}
                 itemHandler={item => <Radio name={gId(legend)} {...item} />}
             />
